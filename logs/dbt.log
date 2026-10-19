@@ -172,3 +172,122 @@ Happy modeling!
 [0m19:01:01.576213 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b682de5f30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b681e25a30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76b682dcf9b0>]}
 [0m19:01:01.578945 [debug] [MainThread]: Flushing usage events
 [0m19:01:01.651035 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:52:06.876363 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f318bed6a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f318dcb5090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f318a6d8550>]}
+
+
+============================== 18:52:06.898650 | 7e5ca2c5-42c3-42ce-b788-e0ee769172f8 ==============================
+[0m18:52:06.898650 [info ] [MainThread]: Running with dbt=1.13.0-b1
+[0m18:52:06.899667 [debug] [MainThread]: running dbt with arguments {'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'debug': 'False', 'profiles_dir': '/workspaces/big-bot-battlers/.dbt', 'static_parser': 'True', 'no_print': 'None', 'warn_error': 'None', 'empty': 'None', 'log_path': 'logs', 'partial_parse': 'True', 'hints_enabled': 'True', 'write_json': 'True', 'version_check': 'True', 'use_colors': 'True', 'log_format': 'default', 'invocation_command': 'dbt init', 'target_path': 'None', 'fail_fast': 'False', 'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'use_experimental_parser': 'False', 'maximum_seed_size_mib': '1', 'quiet': 'False', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True'}
+[0m18:52:06.900331 [debug] [MainThread]: Tracking: tracking
+[0m18:52:35.416397 [debug] [MainThread]: Starter project path: /home/vscode/.local/lib/python3.14/site-packages/dbt/include/starter_project
+[0m18:52:35.427130 [info ] [MainThread]: Setting up your profile.
+[0m18:52:45.438623 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m18:52:45.439205 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m18:52:45.439645 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m18:54:42.493487 [info ] [MainThread]: Profile BIG_BOT_BATTLERS written to /workspaces/big-bot-battlers/.dbt/profiles.yml using target's profile_template.yml and your supplied values.
+[0m18:54:42.497197 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m18:54:42.498106 [info ] [MainThread]: dbt version: 1.13.0-b1
+[0m18:54:42.499419 [info ] [MainThread]: python version: 3.14.8
+[0m18:54:42.500570 [info ] [MainThread]: python path: /usr/local/bin/python3.14
+[0m18:54:42.502164 [info ] [MainThread]: os info: Linux-6.8.0-1064-azure-x86_64-with-glibc2.41
+[0m18:54:42.588615 [info ] [MainThread]: Using profiles dir at /workspaces/big-bot-battlers/.dbt
+[0m18:54:42.589262 [info ] [MainThread]: Using profiles.yml file at /workspaces/big-bot-battlers/.dbt/profiles.yml
+[0m18:54:42.589761 [info ] [MainThread]: Using dbt_project.yml file at /workspaces/big-bot-battlers/BIG_BOT_BATTLERS/dbt_project.yml
+[0m18:54:42.590992 [info ] [MainThread]: adapter type: snowflake
+[0m18:54:42.591421 [info ] [MainThread]: adapter version: 1.12.3
+[0m18:54:42.737832 [info ] [MainThread]: Configuration:
+[0m18:54:42.738547 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m18:54:42.738998 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m18:54:42.739421 [info ] [MainThread]: Required dependencies:
+[0m18:54:42.739895 [debug] [MainThread]: Executing "git --help"
+[0m18:54:42.742263 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   history    EXPERIMENTAL: Rewrite history\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Set `HEAD` or the index to a known state\n   switch     Switch branches\n   tag        Create, list, delete or verify tags\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m18:54:42.742691 [debug] [MainThread]: STDERR: "b''"
+[0m18:54:42.743093 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m18:54:42.743689 [info ] [MainThread]: Connection:
+[0m18:54:42.744307 [info ] [MainThread]:   account: test
+[0m18:54:42.744738 [info ] [MainThread]:   user: test2
+[0m18:54:42.745427 [info ] [MainThread]:   database: how
+[0m18:54:42.746122 [info ] [MainThread]:   warehouse: why
+[0m18:54:42.746653 [info ] [MainThread]:   role: 5
+[0m18:54:42.747233 [info ] [MainThread]:   schema: when
+[0m18:54:42.747859 [info ] [MainThread]:   authenticator: None
+[0m18:54:42.748287 [info ] [MainThread]:   oauth_client_id: None
+[0m18:54:42.748724 [info ] [MainThread]:   query_tag: None
+[0m18:54:42.749227 [info ] [MainThread]:   client_session_keep_alive: False
+[0m18:54:42.749717 [info ] [MainThread]:   host: None
+[0m18:54:42.750190 [info ] [MainThread]:   port: None
+[0m18:54:42.750902 [info ] [MainThread]:   proxy_host: None
+[0m18:54:42.751418 [info ] [MainThread]:   proxy_port: None
+[0m18:54:42.751955 [info ] [MainThread]:   protocol: None
+[0m18:54:42.752417 [info ] [MainThread]:   connect_retries: 1
+[0m18:54:42.752712 [info ] [MainThread]:   connect_timeout: None
+[0m18:54:42.753705 [info ] [MainThread]:   retry_on_database_errors: False
+[0m18:54:42.754740 [info ] [MainThread]:   retry_all: False
+[0m18:54:42.757153 [info ] [MainThread]:   insecure_mode: False
+[0m18:54:42.757862 [info ] [MainThread]:   reuse_connections: True
+[0m18:54:42.758780 [info ] [MainThread]:   s3_stage_vpce_dns_name: None
+[0m18:54:42.759555 [info ] [MainThread]:   workload_identity_provider: None
+[0m18:54:42.760053 [info ] [MainThread]:   workload_identity_entra_resource: None
+[0m18:54:42.760462 [info ] [MainThread]:   platform_detection_timeout_seconds: 0.0
+[0m18:54:42.761298 [info ] [MainThread]: Registered adapter: snowflake=1.12.3
+[0m18:54:42.976497 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m18:54:42.978684 [debug] [MainThread]: Using snowflake connection "debug"
+[0m18:54:42.979176 [debug] [MainThread]: On debug: select 1 as id
+[0m18:54:42.979538 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m18:54:43.502505 [debug] [MainThread]: Snowflake adapter: Error running SQL: select 1 as id
+[0m18:54:43.503275 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m18:54:43.505639 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m18:54:43.506225 [info ] [MainThread]: [31m1 check failed:[0m
+[0m18:54:43.506849 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  290404 (08001): 404 Not Found: post test.snowflakecomputing.com:443/session/v1/login-request
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m18:54:43.507497 [info ] [MainThread]: Your new dbt project "BIG_BOT_BATTLERS" was created!
+Initialized new project in /workspaces/big-bot-battlers/BIG_BOT_BATTLERS/BIG_BOT_BATTLERS
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m18:54:43.508658 [info ] [MainThread]: [31mYour profile may need adjustments. You can find the logs of `dbt debug` above[0m
+[0m18:54:43.510296 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 156.63837, "process_in_blocks": "44984", "process_kernel_time": 0.431906, "process_mem_max_rss": "167588", "process_out_blocks": "128", "process_user_time": 3.089341}
+[0m18:54:43.511468 [debug] [MainThread]: Command `dbt init` succeeded at 18:54:43.511317 after 156.64 seconds
+[0m18:54:43.512018 [debug] [MainThread]: Connection 'debug' was left open.
+[0m18:54:43.516131 [debug] [MainThread]: On debug: No close available on handle
+[0m18:54:43.518490 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f318a606060>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3187471b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f31875f6580>]}
+[0m18:54:43.519622 [debug] [MainThread]: Flushing usage events
+[0m18:54:43.574346 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:02:56.860773 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x772dbfe96a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x772dc1c6d090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x772dbe48f9d0>]}
+
+
+============================== 19:02:56.875133 | ff32730d-eea1-463f-ab3f-3d4e6ac3db19 ==============================
+[0m19:02:56.875133 [info ] [MainThread]: Running with dbt=1.13.0-b1
+[0m19:02:56.875893 [debug] [MainThread]: running dbt with arguments {'introspect': 'True', 'hints_enabled': 'True', 'fail_fast': 'False', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'profiles_dir': '/workspaces/big-bot-battlers/.dbt', 'write_json': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'no_print': 'None', 'quiet': 'False', 'version_check': 'True', 'debug': 'False', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'warn_error': 'None', 'empty': 'False', 'use_experimental_parser': 'False', 'log_path': 'logs', 'use_colors': 'True', 'log_cache_events': 'False', 'printer_width': '80', 'maximum_seed_size_mib': '1', 'cache_selected_only': 'False', 'invocation_command': 'dbt run'}
+[0m19:02:56.876320 [debug] [MainThread]: Tracking: tracking
+[0m19:02:56.876845 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /workspaces/big-bot-battlers/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m19:02:56.878336 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.14021614, "process_in_blocks": "0", "process_kernel_time": 0.200387, "process_mem_max_rss": "122632", "process_out_blocks": "8", "process_user_time": 2.233727}
+[0m19:02:56.878914 [debug] [MainThread]: Command `dbt run` failed at 19:02:56.878758 after 0.14 seconds
+[0m19:02:56.879324 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x772dbe5b3a80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x772dbe4d0a70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x772dbe4978a0>]}
+[0m19:02:56.879758 [debug] [MainThread]: Flushing usage events
+[0m19:02:56.936434 [debug] [MainThread]: An error was encountered while trying to flush usage events

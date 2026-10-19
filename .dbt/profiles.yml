@@ -1,0 +1,13 @@
+BIG_BOT_BATTLERS:
+  outputs:
+    dev:
+      account: "{{env_var('SNOWFLAKE_ACCOUNT')}}"
+      database: "BIG_BOT_BATTLERS"
+      password: "{{env_var('SNOWFLAKE_PASSWORD')}}"
+      role: "ACCOUNTADMIN"
+      schema: "DEV"
+      threads: 1
+      type: snowflake
+      user: "{{env_var('SNOWFLAKE_USER')}}"
+      warehouse: "COMPUTE_WH"
+  target: dev
