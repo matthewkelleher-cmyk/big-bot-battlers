@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: bot_info
+    database: BIG_BOT_BATTLERS
+    schema: INPUT_DATA
+    description: All tables relating directly to fighting robots
+    tables:
+      - name: raw_pilots
+      - name: raw_fighters
+
+  
