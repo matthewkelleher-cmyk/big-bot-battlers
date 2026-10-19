@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "codespace-demo",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/python:3-3.14-trixie",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"snowflake.snowflake-vsc",
+				"innoverio.vscode-dbt-power-user",
+				"ms-python.python",
+				"redhat.vscode-yaml"
+			]
+		}
+	},
+
+
+"remoteEnv": {
+        "DBT_PROFILES_DIR": "${containerWorkspaceFolder}/.dbt"
+    },
+
+
+	"updateContentCommand": "pip install --upgrade pip && pip install dbt-snowflake python-dotenv requests snowflake-connector-python cryptography"
+
+
+
+}

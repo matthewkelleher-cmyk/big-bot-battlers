@@ -1,0 +1,13 @@
+my_dbt_project:
+  outputs:
+    dev:
+      account: EFYWQRI-QTB00212
+      database: ANALYTICS_DEV
+      password: "{{env_var('SNOWFLAKE_PW')}}"
+      role: ACCOUNTADMIN
+      schema: DBT_MATT
+      threads: 1
+      type: snowflake
+      user: MATTHEWKELLEHER
+      warehouse: COMPUTE_WH
+  target: dev
