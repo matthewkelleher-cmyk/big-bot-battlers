@@ -1,2 +1,2 @@
 SELECT *
-FROM {{source('input_data', 'venues')}}
+FROM {{source('input_data', 'raw_venues')}}
