@@ -1,2 +1,2 @@
 SELECT *
-FROM {{source('bot_info', 'raw_pilots')}}
+FROM {{source('input_data', 'raw_pilots')}}
