@@ -1,7 +1,0 @@
-      - name: raw_employee_match_assignments
-      - name: raw_equipment_checks
-      - name: raw_event_attendance
-      - name: raw_fighter_loadouts
-      - name: raw_fighters
-      - name: raw_finance_ledger
-      - name: raw_goods_receipts
