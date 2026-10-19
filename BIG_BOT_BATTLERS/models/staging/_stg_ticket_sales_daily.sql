@@ -1,2 +1,2 @@
 SELECT *
-FROM {{source('input_data', 'raw_sales_daily')}}
+FROM {{source('input_data', 'raw_ticket_sales_daily')}}
