@@ -1,4 +1,4 @@
-# code-spaces-demo
-Do demonstrate functionality of Github Codespaces 
-Hellow TIL! i'M ThE best! 
-We can't lose a fight!
+# Big Bot Battlers
+
+Project Management: https://app.notion.com/p/theinformationlab/Big-Bot-Battlers-Project-Development-3fe5772ad0a280888116ef2c7c8ae676?source=copy_link
+
