@@ -14,6 +14,29 @@ sources:
       - name: raw_venue_capacity_history
       - name: raw_venues
       - name: raw_pilots
+      - name: raw_employee_match_assignments
+      - name: raw_equipment_checks
+      - name: raw_event_attendance
+      - name: raw_fighter_loadouts
       - name: raw_fighters
-
-  
+      - name: raw_finance_ledger
+      - name: raw_goods_reciepts
+      - name: market_research
+      - name: operating_budget_2026
+      - name: raw_matches
+      - name: raw_match_entries
+      - name: raw_purchase_order_lines
+      - name: raw_repair_orders
+      - name: raw_repair_parts
+      - name: raw_season_control_totals
+      - name: raw_sponsor_contracts 
+      - name: raw_weapon_models
+      - name: raw_weapon_failures
+      - name: raw_weapon_materials_bill
+      - name: raw_ticket_source_coverage
+      - name: raw_ticket_sales_legacy
+      - name: raw_teams
+      - name: raw_suppliers
+      - name: raw_supplier_catalogue
+      - name: raw_sponsors
+      - name: raw_sponsor_event_allocation
