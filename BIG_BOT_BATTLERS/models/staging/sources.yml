@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: input_data
+    database: BIG_BOT_BATTLERS
+    schema: INPUT_DATA
+    description: All tables
+    tables:
+      - name: raw_cities
+      - name: raw_components
+      - name: raw_employees
+      - name: raw_events
+      - name: raw_ticket_sales_daily
+      - name: raw_venue_capacity_history
+      - name: raw_venues
+      - name: raw_pilots
+      - name: raw_fighters
+
+  
