@@ -1,6 +1,7 @@
-with engineers as (
-    SELECT *
-    FROM {{ref('_int_employees_with_access')}}
+with match_assignments as (
+    SELECT match_id, employee_id
+    FROM {{ref('_stg_employee_match_assignments')}}
+    WHERE equipment_access = 'TRUE'
 ),
 
 matches as (
@@ -11,7 +12,7 @@ matches as (
 final as (
     SELECT m.match_id, m.event_id, m.winner_fighter_id, m.decision, e.employee_id
     FROM matches m
-    LEFT JOIN engineers e
+    LEFT JOIN match_assignments e
     ON m.match_id = e.match_id
 )
 
