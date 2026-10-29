@@ -18,6 +18,15 @@ match_entries as (
     FROM {{ref('_stg_match_entries')}}
 ),
 
+failures_by_eng as (
+    SELECT
+    f.*,
+    e.employee_id,
+    FROM failures f
+    LEFT JOIN engineers e
+    ON f.match_id = e.match_id
+),
+
 match_loadouts as (
     SELECT m.*, 
     l.primary_weapon_id as primary, 
@@ -28,45 +37,105 @@ match_loadouts as (
     ON m.loadout_id = l.loadout_id
 ),
 
+match_loadouts_by_eng as (
+    SELECT
+    m.*,
+    e.employee_id
+    FROM match_loadouts m
+    LEFT JOIN engineers e
+    ON m.match_id = e.match_id
+),
+
 primary_counts as (
-    SELECT primary, 
+    SELECT primary as weapon_id, 
     COUNT(*) as pri_count
     FROM match_loadouts
-    GROUP BY primary
+    GROUP BY weapon_id
+),
+
+primary_counts_by_eng as (
+    SELECT 
+    primary as weapon_id,
+    employee_id,
+    COUNT(*) as pri_count
+    FROM match_loadouts_by_eng
+    GROUP BY weapon_id, employee_id
 ),
 
 secondary_counts as (
-    SELECT secondary, 
+    SELECT secondary as weapon_id, 
     COUNT(*) as sec_count
     FROM match_loadouts
-    GROUP BY secondary
+    GROUP BY weapon_id
+),
+
+secondary_counts_by_eng as (
+    SELECT 
+    secondary as weapon_id,
+    employee_id,
+    COUNT(*) as sec_count
+    FROM match_loadouts_by_eng
+    GROUP BY weapon_id, employee_id
 ),
 
 special_counts as (
-    SELECT special, 
+    SELECT special as weapon_id, 
     COUNT(*) as sp_count
     FROM match_loadouts
-    GROUP BY special
+    GROUP BY weapon_id
+),
+
+special_counts_by_eng as (
+    SELECT 
+    special as weapon_id,
+    employee_id,
+    COUNT(*) as sp_count
+    FROM match_loadouts_by_eng
+    GROUP BY weapon_id, employee_id
 ),
 
 weapon_appearances as (
-    SELECT pri.*,
-    sec.sec_count,
-    sp.sp_count,
-    (pri.pri_count + sec.sec_count + sp.sp_count) as total_appearances
+    SELECT pri.weapon_id,
+    COALESCE(pri.pri_count, 0) as primary_count,
+    COALESCE(sec.sec_count, 0) as secondary_count,
+    COALESCE(sp.sp_count,0) as special_count,
+    (primary_count + secondary_count + special_count) as total_appearances
     FROM primary_counts pri
     LEFT JOIN secondary_counts sec
-    ON pri.primary = sec.secondary
+    ON pri.weapon_id = sec.weapon_id 
     LEFT JOIN special_counts sp
-    ON pri.primary = sp.special
+    ON pri.weapon_id = sp.weapon_id 
 ),
 
-weapons_fail_count as (
+weapon_appearances_by_eng as (
+    SELECT pri.weapon_id,
+    pri.employee_id,
+    COALESCE(pri.pri_count, 0) as primary_count,
+    COALESCE(sec.sec_count, 0) as secondary_count,
+    COALESCE(sp.sp_count,0) as special_count,
+    (primary_count + secondary_count + special_count) as total_appearances
+    FROM primary_counts_by_eng pri
+    LEFT JOIN secondary_counts_by_eng sec
+    ON pri.weapon_id = sec.weapon_id AND pri.employee_id = sec.employee_id
+    LEFT JOIN special_counts_by_eng sp
+    ON pri.weapon_id = sp.weapon_id AND pri.employee_id = sp.employee_id
+),
+
+weapon_fail_count as (
     SELECT 
     weapon_model_id as weapon_id,
     COUNT(*) as failure_count
     FROM failures
-    GROUP BY weapon
+    GROUP BY weapon_id
+),
+
+weapon_fail_count_by_eng as (
+    SELECT 
+    weapon_model_id as weapon_id,
+    employee_id,
+    COUNT(*) as failure_count
+    FROM failures_by_eng
+    GROUP BY weapon_id, employee_id
 ),
 
 weapon_fail_rate as (
@@ -76,9 +145,29 @@ weapon_fail_rate as (
     f.failure_count,
     (f.failure_count/a.total_appearances)*100 as fail_rate
     FROM weapon_appearances a
-    LEFT JOIN weapons_fail_count f
-    ON a.weapon_id = f.weapon_id
-    
+    LEFT JOIN weapon_fail_count f
+    ON a.weapon_id = f.weapon_id  
+),
+
+weapon_fail_rate_by_eng as (
+    SELECT 
+    a.weapon_id,
+    a.total_appearances,
+    a.employee_id,
+    f.failure_count,
+    (f.failure_count/a.total_appearances)*100 as fail_rate
+    FROM weapon_appearances_by_eng a
+    LEFT JOIN weapon_fail_count_by_eng f
+    ON a.weapon_id = f.weapon_id AND a.employee_id = f.employee_id
+),
+
+final as (
+    SELECT 
+    efr.*,
+    fr.fail_rate as overall_fail_rate
+    FROM weapon_fail_rate_by_eng efr
+    LEFT JOIN weapon_fail_rate fr
+    ON efr.weapon_id = fr.weapon_id
 )
 
-SELECT * FROM weapon_fail_rate
+SELECT * FROM final
