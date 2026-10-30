@@ -9,6 +9,11 @@ matches as (
     FROM {{ref('_stg_matches')}}
 ),
 
+events as (
+    SELECT event_id, event_date
+    FROM {{ref('_stg_events')}}
+),
+
 final as (
     SELECT m.match_id, m.event_id, m.winner_fighter_id, m.decision, e.employee_id
     FROM matches m
