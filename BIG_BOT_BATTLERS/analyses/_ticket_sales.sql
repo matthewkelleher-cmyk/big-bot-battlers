@@ -1,11 +1,18 @@
 with legacy_sales as 
 (
     select 
-    trasnaction_id 
-    , max(transaction_date) as min_date
-    , min(tranaction_date) as max_date
+    --   max(TRANSACTION_DATE) as min_date
+    -- , min(TRANSACTION_DATE) as max_date
+    count(TRANSACTION_TYPE) as num_non_null_rows
     from {{ref('_stg_ticket_sales_legacy')}}
-    group by trasnaction_id
+)
+, 
+daily_sales as 
+(
+    select 
+    max(SALES_DATE) as max_date 
+    , min(SALES_DATE) as min_date
+    from {{ref('_stg_ticket_sales_daily')}}
 )
 select * 
 from legacy_sales
