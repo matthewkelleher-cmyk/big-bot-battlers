@@ -16,7 +16,7 @@ legacy_cleaned as (
        event_id,
        transaction_date as sales_date,
        case
-           when upper(trim(ticket_class)) in ('VIP', 'FIRST CLASS') then 'PREMIUM'
+           when upper(trim(ticket_class)) in ('First Class', 'FIRST CLASS') then 'PREMIUM'
            else 'STANDARD'
        end as ticket_class,
        case
