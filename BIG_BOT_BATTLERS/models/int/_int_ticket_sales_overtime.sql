@@ -1,6 +1,6 @@
 with ticket_sales as (
     select *
-    from {{ref('_int_ticket_sales_union')}}
+    from {{ref('_int_add_date_spine')}}
 ), 
 add_time_col as 
 (
@@ -16,11 +16,11 @@ select
         when date_part('month', SALES_DATE) in (6, 7, 8)  then 'Summer'
         else 'Fall'
       end as sale_season
-    , case 
-        when date_part('month', SALES_DATE) = 12
-            then date_part('year', SALES_DATE) + 1 
-        else date_part('year', SALES_DATE)
-      end as sale_season_year
+    , case
+    when date_part('month', SALES_DATE) = 12
+        then date_part('year', SALES_DATE) + 1
+    else date_part('year', SALES_DATE)
+  end::varchar as sale_season_year
 from ticket_sales
 ), 
 add_tickets_sold_agg as (
@@ -28,7 +28,8 @@ add_tickets_sold_agg as (
     * 
     , sum(TICKETS_SOLD) over(partition by sale_month) as tickets_sold_month
     , sum(TICKETS_SOLD) over(partition by sale_quarter) as tickets_sold_quarter 
-    , sum(TICKETS_SOLD) over(partition by sale_season_year) as tickets_sold_season
+    , sum(TICKETS_SOLD) over(partition by sale_season_year, sale_season) as tickets_sold_season_year
+    , sum(TICKETS_SOLD) OVER(partition by sale_season) as tickets_sold_season
     from add_time_col 
 ), 
 final as (
@@ -41,7 +42,14 @@ final as (
     , TICKETS_SOLD
     , tickets_sold_month
     , tickets_sold_quarter
+    , sale_month
+    , sale_quarter
+    , sale_year
+    , sale_month_num
+    , tickets_sold_season_year
     , tickets_sold_season
+    , sale_season
+    , sale_season_year
     -- , GROSS_SALES_USD need to clean column to drop '$' and cast as int
     , BUYER_STATE
     from add_tickets_sold_agg

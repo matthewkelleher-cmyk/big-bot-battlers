@@ -325,3 +325,20 @@ Runtime Error
 [0m13:23:43.044161 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x713cf40c3bb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x713cf3ef9250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x713cf3e57f00>]}
 [0m13:23:43.047086 [debug] [MainThread]: Flushing usage events
 [0m13:23:43.111047 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:11:34.950876 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d661ae227b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d661cbd5450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d66193a3890>]}
+
+
+============================== 18:11:34.975738 | 90891789-64ca-44a5-85b0-791f496ed3bb ==============================
+[0m18:11:34.975738 [info ] [MainThread]: Running with dbt=1.13.0-b1
+[0m18:11:34.977794 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'use_colors': 'True', 'fail_fast': 'False', 'write_json': 'True', 'cache_selected_only': 'False', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'hints_enabled': 'True', 'target_path': 'None', 'log_cache_events': 'False', 'warn_error': 'None', 'invocation_command': 'dbt run', 'no_print': 'None', 'profiles_dir': '/workspaces/big-bot-battlers/.dbt', 'debug': 'False', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'maximum_seed_size_mib': '1', 'printer_width': '80', 'introspect': 'True', 'empty': 'False', 'static_parser': 'True', 'quiet': 'False', 'use_experimental_parser': 'False', 'log_path': 'logs', 'log_format': 'default'}
+[0m18:11:34.979537 [debug] [MainThread]: Tracking: tracking
+[0m18:11:34.982405 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /workspaces/big-bot-battlers/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m18:11:34.983948 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.23954397, "process_in_blocks": "32", "process_kernel_time": 0.209575, "process_mem_max_rss": "122444", "process_out_blocks": "8", "process_user_time": 2.446983}
+[0m18:11:34.987844 [debug] [MainThread]: Command `dbt run` failed at 18:11:34.987683 after 0.24 seconds
+[0m18:11:34.992590 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d6619603bb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d661943d250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d661939bf00>]}
+[0m18:11:34.995245 [debug] [MainThread]: Flushing usage events
+[0m18:11:35.043590 [debug] [MainThread]: An error was encountered while trying to flush usage events
